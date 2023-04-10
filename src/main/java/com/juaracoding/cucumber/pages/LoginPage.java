@@ -38,6 +38,13 @@ public class LoginPage {
     @FindBy(xpath = "//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]")
     WebElement txtInvalidLogin;
 
+    @FindBy(xpath = "/html/body/div[1]/div[1]/div[2]/p")
+    WebElement txtCantReach;
+
+    @FindBy(xpath = "//div[@class='orangehrm-login-form']//div[2]//div[1]//span[1]")
+    WebElement txtRequired;
+
+
     public String getLoginTitle(){
         return txtTitleLogin.getText();
     }
@@ -68,4 +75,11 @@ public class LoginPage {
         btnProfile.click();
         btnLogout.click();
     }
+    public String getTxtCantReach(){
+        return txtCantReach.getText();}
+
+    public String getTxtRequired(){
+        return txtRequired.getText();
+    }
+
 }

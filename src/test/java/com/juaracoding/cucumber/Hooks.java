@@ -17,11 +17,11 @@ public class Hooks {
 
     @Before
     public static void setUp(){
-       DriverSingleton.getInstance(Constants.CHROME);
-       driver = DriverSingleton.getDriver();
-       TestScenarios[] test = TestScenarios.values();
-       extentTest = reports.startTest(test[Utils.testCount].getTestCaseName());
-       Utils.testCount++;
+        DriverSingleton.getInstance(Constants.CHROME);
+        driver = DriverSingleton.getDriver();
+        TestScenarios[] test = TestScenarios.values();
+        extentTest = reports.startTest(test[Utils.testCount].getTestCaseName());
+        Utils.testCount++;
     }
     @After
     public void endTestCase(){

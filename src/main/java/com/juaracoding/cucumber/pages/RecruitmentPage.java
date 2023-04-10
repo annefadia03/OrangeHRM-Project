@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 public class RecruitmentPage {
     private WebDriver driver;
 
-    public RecruitmentPage(){
+    public RecruitmentPage() {
         this.driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
@@ -63,34 +63,162 @@ public class RecruitmentPage {
 
     @FindBy(xpath = "//button[@type='submit']")
     WebElement btnSubmit;
+    @FindBy(xpath = "//input[@placeholder='Enter comma seperated words...']")
+    WebElement keywords;
 
-//    public void addDataCandidate(){
-//        inputFirstName.sendKeys("Anne");
-//        inputMidleName.sendKeys("Fadia");
-//        inputLastName.sendKeys("Ikhfa");
-//        inputVacancy.sendKeys("Senior QA Lead");
-//        inputEmail.sendKeys("annefadia143@gmail.com");
-//        inputNumberHP.sendKeys("0822843006");
-//        inputDoc.sendKeys("D:\\New DOCX Document.docx");
-//        inputNote.sendKeys("sangjuara");
-//        inputDate.sendKeys(Keys.CONTROL,"a", Keys.DELETE);
-//        inputDate.sendKeys("2023-03-11");
-//        inputDesc.sendKeys("anne sukses");
-//        btnCeklis.click();
-//        btnSubmit.click();
-//    }
+    @FindBy(xpath = "//input[@placeholder='yyyy-mm-dd']")
+    WebElement date;
 
-    public void goToMenuRecruitment(){
+    @FindBy(xpath = "//i[@class='oxd-icon bi-check oxd-checkbox-input-icon']")
+    WebElement chkConsent;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    WebElement btnSave;
+
+    @FindBy(xpath = "//h6[normalize-space()='Application Stage']")
+    WebElement txtApplicationStage;
+
+    @FindBy(xpath = "//a[normalize-space()='Vacancies']")
+    WebElement menuVacancies;
+
+    @FindBy(xpath = "/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div[1]/div/div[2]/input")
+    WebElement vacancyName;
+
+    @FindBy(xpath = "/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div/div[2]/div/div/div[1]")
+    WebElement jobTitle;
+
+    @FindBy(xpath = "//input[@placeholder='Type for hints...']")
+    WebElement hiringManager;
+
+    @FindBy(xpath = "/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[3]/div[2]/div/div/div/div[2]/input")
+    WebElement numberPositions;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[4]/div[1]/div[1]/label[1]/span[1]")
+    WebElement btnActive;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[5]/div[1]/div[1]/label[1]/span[1]")
+    WebElement btnPublish;
+
+    @FindBy(xpath = "//button[normalize-space()='Cancel']")
+    WebElement btnCancel;
+
+    @FindBy(xpath = "//h6[@class='oxd-text oxd-text--h6 orangehrm-main-title']")
+    WebElement txtEditVacancy;
+
+    @FindBy(xpath = "//span[normalize-space()='Required']")
+    WebElement txtRequiredForm;
+    @FindBy(xpath = "//span[normalize-space()='Invalid']")
+    WebElement txtInvalidForm;
+
+    public void goToMenuRecruitment() {
         btnRecruitment.click();
     }
-    public String getTxtRecruitment(){
+
+    public String getTxtRecruitment() {
         return txtRecruitment.getText();
     }
-    public String getJudulAddPage(){
+
+    public String getJudulAddPage() {
         return txtTitleAdd.getText();
     }
 
     public void addDataPage(){
         btnAdd.click();
+    }
+    public String getTxtRequiredForm(){
+        return txtRequiredForm.getText();
+    }
+    public String getTxtInvalidForm(){
+        return txtInvalidForm.getText();
+    }
+
+    public String getTxtAppStage(){
+        return txtApplicationStage.getText();
+    }
+    public String getTxtEditVacancy(){
+        return txtEditVacancy.getText();
+    }
+    public void clickMenuVacancies(){
+        menuVacancies.click();
+    }
+    public void fillName(){
+        inputFirstName.sendKeys("Yusup");
+        inputMidleName.sendKeys("Bin");
+        inputLastName.sendKeys("Sanusi");
+    }
+    public void fillNoName(){
+        inputFirstName.sendKeys("");
+        inputMidleName.sendKeys("");
+        inputLastName.sendKeys("");
+    }
+    public void fillNoFirstName(){
+        inputFirstName.sendKeys("");
+        inputMidleName.sendKeys("Bin");
+        inputLastName.sendKeys("Sanusi");
+    }
+    public void fillNoLastName(){
+        inputFirstName.sendKeys("Yusup");
+        inputMidleName.sendKeys("Bin");
+        inputLastName.sendKeys("");
+    }
+    public void selectVacancy(){
+        inputVacancy.sendKeys("Software");
+    }
+    public void fillEmailContact(){
+        inputEmail.sendKeys("bangucup@gmail.com");
+        inputNumberHP.sendKeys("080989999");
+    }
+    public void uploadResume(){
+        String pathDoc = "D:\\Works\\JuaraCoding\\Excel\\UTT-Books-37.docx";
+        inputDoc.sendKeys(pathDoc);
+    }
+    public void fillKeywords(){
+        keywords.sendKeys("Test");
+    }
+    public void chooseDate(){
+        date.sendKeys(Keys.CONTROL,"a",Keys.DELETE);
+        date.sendKeys("2023-02-23");
+    }
+    public void fillNotes(){
+        inputNote.sendKeys("Test");
+    }
+    public void fillVacName(){
+        vacancyName.sendKeys("abcd");
+    }
+    public void fillNoVacName(){
+        vacancyName.sendKeys("");
+    }
+    public void selectJobTitle(){
+        jobTitle.sendKeys("Account Assistant");
+    }
+    public void fillDescription(){
+        inputDesc.sendKeys("Test");
+    }
+    public void fillHiring(){
+        hiringManager.sendKeys("siapa aja");
+    }
+    public void fillNoHiring(){
+        hiringManager.sendKeys("");
+    }
+    public void fillInvalidHiring(){
+        hiringManager.sendKeys("Apa aja");
+    }
+    public void fillPosNumber(){
+        numberPositions.sendKeys("2");
+    }
+    public void checkConsent(){
+        chkConsent.click();
+    }
+    public void clickActive(){
+        btnActive.click();
+    }
+    public void clickPublish(){
+        btnPublish.click();
+    }
+    public void clickBtnSave(){
+        btnSave.click();
+    }
+    public void clickBtnCancel(){
+        btnCancel.click();
     }
 }

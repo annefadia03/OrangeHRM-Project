@@ -1,8 +1,8 @@
 package com.juaracoding.cucumber;
 
 public enum TestScenarios {
-    T1("Admin successful login into web HRM"),
-    T2("Admin add candidate");
+    T1("User succesful Login into web HRM"),
+    T2("Admin go to Recruitment page");
 
     private String testCaseName;
     TestScenarios(String value){
